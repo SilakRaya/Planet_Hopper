@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bb1af6647lcnj"]
 
 [ext_resource type="AudioStream" uid="uid://2g1tv5pf05i4" path="res://OST/x40/Planet_Hopper_MainMenu.mp3" id="1_28flt"]
+[ext_resource type="Script" uid="uid://drp3um8sgg348" path="res://Scenes/buttons.gd" id="1_48xlc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font_size = 30
@@ -27,22 +28,29 @@ offset_bottom = 224.0
 layout_mode = 2
 theme_override_constants/separation = 8
 
+[node name="Buttons" type="Node" parent="CenterContainer2/VBoxContainer" unique_id=44321409]
+script = ExtResource("1_48xlc")
+
 [node name="NewGameBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=1810440479]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "New Game"
 
 [node name="OptionsBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=260880420]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Options"
 
 [node name="CreditsBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=1950296539]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Credits"
 
 [node name="ExitBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=1784198850]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Exit"
@@ -50,3 +58,8 @@ text = "Exit"
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=1051895891]
 stream = ExtResource("1_28flt")
 autoplay = true
+
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/NewGameBtn" to="CenterContainer2/VBoxContainer/Buttons" method="_on_new_game_btn_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/OptionsBtn" to="CenterContainer2/VBoxContainer/Buttons" method="_on_options_btn_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/CreditsBtn" to="CenterContainer2/VBoxContainer/Buttons" method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/ExitBtn" to="CenterContainer2/VBoxContainer/Buttons" method="_on_exit_btn_pressed"]

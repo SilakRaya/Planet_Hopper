@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cmyyu54dgfu7x"]
+
+[ext_resource type="Texture2D" uid="uid://b03mf2km8lsxn" path="res://ASSet/Placeholders/berry.png" id="1_g647p"]
+[ext_resource type="Script" uid="uid://13f755ybpuvt" path="res://Entity/player.gd" id="1_ta3ek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(41, 96)
+
+[sub_resource type="Animation" id="Animation_ta3ek"]
+resource_name = "Idle"
+length = 2.1333334
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0333333, 2.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.045, 0.92), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.0333333, 2.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3.595), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0fxvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_01uqx"]
+_data = {
+&"Idle": SubResource("Animation_ta3ek"),
+&"RESET": SubResource("Animation_0fxvp")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1525069962]
+script = ExtResource("1_ta3ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=671789660]
+texture = ExtResource("1_g647p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564331406]
+position = Vector2(5.5, 4)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.660823, 0.4469288, 0.6765332, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=819023552]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_01uqx")
+autoplay = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1376481755]
+offset = Vector2(0, -50)
+zoom = Vector2(0.5, 0.5)
+limit_enabled = false

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bb1af6647lcnj"]
+
+[ext_resource type="AudioStream" uid="uid://2g1tv5pf05i4" path="res://OST/x40/Planet_Hopper_MainMenu.mp3" id="1_28flt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 30
+
+[node name="Main_Menu" type="Node2D" unique_id=160863945]
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=914162490]
+offset_right = 426.0
+offset_bottom = 92.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=733363854]
+layout_mode = 2
+text = "Planet Hopper"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=1097687070]
+offset_top = 88.0
+offset_right = 426.0
+offset_bottom = 224.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2" unique_id=1514791826]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NewGameBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=1810440479]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "New Game"
+
+[node name="OptionsBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=260880420]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Options"
+
+[node name="CreditsBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=1950296539]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Credits"
+
+[node name="ExitBtn" type="Button" parent="CenterContainer2/VBoxContainer" unique_id=1784198850]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Exit"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=1051895891]
+stream = ExtResource("1_28flt")
+autoplay = true
